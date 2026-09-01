@@ -4,6 +4,14 @@ A CrewAI multi-agent system that scans GitHub every day for the best new open-so
 
 ---
 
+## Subscribe
+
+GitPulse runs as a live newsletter at **[thegitpulse.com](https://thegitpulse.com)** — register
+there to get the digest in your inbox each day. No setup, no API keys; the rest of this README
+is for running your own copy.
+
+---
+
 ## Sample output
 
 ![The Git Pulse digest](docs/sample-digest.jpg)
