@@ -1,0 +1,107 @@
+---
+research_daily_trends:
+  description: >
+    Find the best new and trending open-source AI tools and GitHub repositories
+    from the past 24-48 hours. Use the following search strategies in order:
+
+    1. Search GitHub Trending for today and this week, specifically in the AI, machine
+       learning, LLM, and developer-tools categories. Use queries like:
+       "github trending AI today", "github.com/trending/python?since=daily",
+       "github trending machine learning this week".
+
+    2. Search GitHub directly for recently created or updated AI repositories using
+       queries like: "site:github.com AI agent tool 2025",
+       "site:github.com LLM framework released", "new open source AI tool github".
+
+    3. Check Hacker News Show HN and Product Hunt for newly launched AI tools that
+       link back to a GitHub repository.
+
+    For every project you find, collect ALL of the following:
+    - Full github.com repository URL (e.g. https://github.com/owner/repo) — REQUIRED
+    - Repository name and owner/repo slug (e.g. "owner/repo")
+    - One-line description from the repo
+    - Star count and primary programming language (if visible)
+    - A 2-3 sentence explanation of what problem it solves and who would benefit from it
+    - Date created or last significantly updated
+
+    IMPORTANT: Only include projects where you have confirmed a real, direct
+    https://github.com/owner/repo URL. Do not include trending topic names or
+    categories that do not correspond to a specific repository.
+
+    Aim for 8-12 distinct projects.
+  expected_output: >
+    A structured list of 8-12 GitHub repositories, each containing:
+    repository name, owner/repo slug, full confirmed github.com URL, one-line description,
+    star count, primary language, and a 2-3 sentence summary. Every entry must have a
+    real https://github.com/owner/repo URL — omit any that do not.
+  agent: daily_trend_researcher
+
+create_headlines_and_summaries:
+  description: >
+    Transform the GitHub repository research into a structured JSON object ready
+    for the email tool to render and send.
+
+    Output a single JSON object with exactly three top-level keys:
+
+    1. "subject": a punchy, curiosity-driven email subject line based on the most
+       impressive or surprising repo found. It should feel like something a developer
+       would actually open. Reference the standout project by name and add context
+       that creates urgency or intrigue. Keep it under 60 characters where possible.
+       Examples of the right tone:
+         - "SuperMemory just hit 2k stars — and 9 more tools to steal"
+         - "The LLM framework everyone's forking this week"
+         - "Claude built a RAG pipeline in 200 lines — open source"
+         - "MiniAgent: zero-dependency AI agents in pure Python"
+       Do NOT use generic phrases like "Daily Digest" or "GitHub Trends" — make it
+       specific to what was actually found today.
+
+    2. "welcome_message": a warm, friendly 2-3 sentence intro for the reader.
+       Write it as if addressing a developer who loves discovering new tools.
+       Mention today's date, how many repos were found, and tease one standout
+       project by name. Keep it conversational and energetic — not corporate.
+       Example tone: "Happy Tuesday! We scanned GitHub so you don't have to —
+       here are 10 fresh AI tools worth your attention today, including
+       ToolName which just hit 2k stars overnight."
+
+    3. "projects": a JSON array where each element has exactly these fields:
+         - "name": the repository name (string)
+         - "github_url": full GitHub URL starting with https://github.com/ (string)
+         - "owner_repo": the owner/repo slug, e.g. "owner/repo" (string)
+         - "description": a compelling 2-3 sentence description of what it does
+                          and why a developer would care (string)
+         - "language": primary programming language (string, "Unknown" if unavailable)
+         - "stars": star count as a string, e.g. "1.2k" or "945" ("N/A" if unavailable)
+
+    Rules:
+    - Only include projects with a confirmed https://github.com/owner/repo URL.
+    - Do not include trending topic names or categories without a specific repo.
+    - Do not wrap output in markdown code fences.
+    - Output the raw JSON object only — nothing before or after it.
+  expected_output: >
+    A raw JSON object with three keys: "subject" (string), "welcome_message" (string),
+    and "projects" (array of 8-12 project objects). Every github_url starts with
+    https://github.com/. No markdown, no prose — only the JSON object.
+  agent: content_creator_and_summarizer
+  context:
+  - research_daily_trends
+
+send_daily_trends_email_report:
+  description: >
+    Send ONE broadcast to all GitPulse subscribers using the send_html_email tool.
+
+    Call the send_html_email tool EXACTLY ONCE with all projects from the previous task.
+    Never call the tool more than once and never split projects across multiple calls.
+
+    Use these parameters:
+      - subject: the "subject" string from the previous task's output
+      - welcome_message: the "welcome_message" string from the previous task's output
+      - projects: the complete "projects" array from the previous task's output
+
+    The tool handles URL validation, email rendering, broadcast creation, and delivery
+    to all subscribers. Do not filter, modify, or split the projects list.
+  expected_output: >
+    Confirmation that a broadcast was sent to all subscribers, including the number
+    of projects included and the Resend broadcast ID.
+  agent: email_reporter
+  context:
+  - create_headlines_and_summaries

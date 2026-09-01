@@ -1,0 +1,84 @@
+<!-- ── THE GIT PULSE PROJECT CARD ─────────────────────────────────────
+     Placeholders replaced per project — do not remove any {{...}} token.
+     Edit only the surrounding HTML/CSS to restyle.
+     ─────────────────────────────────────────────────────────────────── -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="margin-bottom:16px;border-radius:12px;
+              border:1px solid #1a1f28 !important;
+              background-color:#0e121b !important;overflow:hidden;">
+  <tr>
+
+    <!-- Left green accent bar — matches site brand colour -->
+    <td width="3" style="background-color:#22c55e !important;
+                         border-radius:12px 0 0 12px;font-size:1px;line-height:1px;">&nbsp;</td>
+
+    <td style="padding:0;background-color:#0e121b !important;">
+
+      <!-- GitHub Open Graph preview image -->
+      <!-- Populated by the tool: the OG_IMAGE_URL tag below must stay -->
+      <a href="{{PROJECT_URL}}" style="display:block;text-decoration:none;">
+        <img src="{{OG_IMAGE_URL}}"
+             alt="{{PROJECT_NAME}} preview"
+             width="597"
+             style="display:block;width:100%;max-width:597px;height:auto;
+                    border-radius:0 12px 0 0;border-bottom:1px solid #1a1f28 !important;"
+        />
+      </a>
+
+      <!-- Card body -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding:16px 18px 18px;background-color:#0e121b !important;">
+
+            <!-- Project name -->
+            <h2 style="margin:0 0 3px;font-size:16px;line-height:1.4;">
+              <a href="{{PROJECT_URL}}"
+                 style="color:#22c55e !important;text-decoration:none;font-weight:600;
+                        font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;">
+                {{PROJECT_NAME}}
+              </a>
+            </h2>
+
+            <!-- owner/repo slug in monospace -->
+            <p style="margin:0 0 11px;font-size:11px;color:#64748b !important;
+                      font-family:'JetBrains Mono','Courier New',Courier,monospace;">
+              {{OWNER_REPO}}
+            </p>
+
+            <!-- Description -->
+            <p style="margin:0 0 14px;font-size:13px;line-height:1.65;color:#94a3b8 !important;
+                      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;">
+              {{DESCRIPTION}}
+            </p>
+
+            <!-- Badges -->
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding-right:10px;">
+                  <span style="display:inline-block;background-color:{{LANGUAGE_COLOUR}} !important;
+                               color:#ffffff !important;font-size:10px;font-weight:700;
+                               padding:2px 9px;border-radius:20px;
+                               font-family:'JetBrains Mono','Courier New',Courier,monospace;">
+                    {{LANGUAGE}}
+                  </span>
+                </td>
+                <td style="padding-right:16px;">
+                  <span style="font-size:12px;color:#94a3b8 !important;">&#11088; {{STARS}}</span>
+                </td>
+                <td>
+                  <a href="{{PROJECT_URL}}"
+                     style="font-size:11px;color:#22c55e !important;text-decoration:none;
+                            font-weight:600;font-family:'JetBrains Mono','Courier New',Courier,monospace;">
+                    view repo &#8594;
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>

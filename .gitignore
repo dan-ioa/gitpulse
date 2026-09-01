@@ -1,0 +1,15 @@
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtualenv / dependency caches
+.venv/
+.uv-cache/
+
+# Generated output
+report.md
+reports/

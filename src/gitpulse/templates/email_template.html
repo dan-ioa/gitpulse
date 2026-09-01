@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>The Git Pulse</title>
+  <style>
+    body, .email-body { background-color: #05070a !important; }
+  </style>
+</head>
+<body class="email-body"
+      style="margin:0;padding:0;background-color:#05070a !important;
+             font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="background-color:#05070a !important;">
+    <tr>
+      <td align="center" style="padding:28px 16px;background-color:#05070a !important;">
+
+        <table width="600" cellpadding="0" cellspacing="0" border="0"
+               style="max-width:600px;width:100%;">
+
+          <!-- ── HEADER ─────────────────────────────────────────────── -->
+          <tr>
+            <td style="background-color:#0e121b !important;border-radius:12px 12px 0 0;
+                       padding:36px 32px 28px;text-align:center;
+                       border-bottom:2px solid #22c55e !important;">
+
+              <!-- Brand name — edit "THE GIT PULSE" to change the brand -->
+              <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:4px;
+                        text-transform:uppercase;color:#22c55e !important;
+                        font-family:'JetBrains Mono','Courier New',Courier,monospace;">
+                &#9654; THE GIT PULSE
+              </p>
+
+              <!-- Main headline — edit freely -->
+              <h1 style="margin:0 0 12px;font-size:23px;font-weight:700;
+                         color:#ffffff !important;line-height:1.35;letter-spacing:-0.3px;">
+                Today's Best Open-Source AI Tools
+              </h1>
+
+              <!-- Populated by the tool: the DIGEST_DATE tag below must stay -->
+              <p style="margin:0;font-size:12px;color:#64748b !important;
+                        font-family:'JetBrains Mono','Courier New',Courier,monospace;letter-spacing:1px;">
+                {{DIGEST_DATE}}
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- ── WELCOME / SUMMARY MESSAGE ─────────────────────────── -->
+          <!-- Populated by the tool: the WELCOME_MESSAGE tag below must stay -->
+          <tr>
+            <td style="background-color:#0e121b !important;padding:24px 28px 4px;
+                       border-left:1px solid #1a1f28 !important;
+                       border-right:1px solid #1a1f28 !important;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <!-- Green left accent bar matching site brand -->
+                  <td width="3" style="background-color:#22c55e !important;border-radius:4px;
+                                       font-size:1px;line-height:1px;">&nbsp;</td>
+                  <td style="padding-left:14px;background-color:#0e121b !important;">
+                    <p style="margin:0;font-size:14px;line-height:1.7;color:#94a3b8 !important;">
+                      {{WELCOME_MESSAGE}}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ── SECTION LABEL ──────────────────────────────────────── -->
+          <tr>
+            <td style="background-color:#0e121b !important;padding:20px 28px 12px;
+                       border-left:1px solid #1a1f28 !important;
+                       border-right:1px solid #1a1f28 !important;">
+              <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:3px;
+                        text-transform:uppercase;color:#22c55e !important;
+                        font-family:'JetBrains Mono','Courier New',Courier,monospace;">
+                Today's picks:
+              </p>
+            </td>
+          </tr>
+
+          <!-- ── PROJECT CARDS ──────────────────────────────────────── -->
+          <!-- Populated by the tool: the PROJECT_CARDS tag below must stay -->
+          <tr>
+            <td style="background-color:#0e121b !important;padding:0 20px 8px;
+                       border-left:1px solid #1a1f28 !important;
+                       border-right:1px solid #1a1f28 !important;">
+              {{PROJECT_CARDS}}
+            </td>
+          </tr>
+
+          <!-- ── FOOTER ─────────────────────────────────────────────── -->
+          <tr>
+            <td style="background-color:#151922 !important;
+                       border-top:1px solid #1a1f28 !important;
+                       border-radius:0 0 12px 12px;padding:22px 32px;text-align:center;">
+              <!-- Footer brand — edit to match header -->
+              <p style="margin:0 0 5px;font-size:12px;font-weight:700;
+                        color:#22c55e !important;
+                        font-family:'JetBrains Mono','Courier New',Courier,monospace;letter-spacing:3px;">
+                &#9654; THE GIT PULSE
+              </p>
+              <!-- Footer tagline — edit freely -->
+              <p style="margin:0 0 10px;font-size:11px;color:#1e2433 !important;">
+                Automated by AI agents &bull; Powered by CrewAI &amp; Gemini
+              </p>
+              <!-- Unsubscribe: the RESEND_UNSUBSCRIBE_URL tag below is replaced by Resend at send time -->
+              <p style="margin:0;font-size:11px;">
+                <a href="{{{RESEND_UNSUBSCRIBE_URL}}}"
+                   style="color:#64748b !important;text-decoration:underline;">
+                  Unsubscribe
+                </a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
