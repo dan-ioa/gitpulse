@@ -7,8 +7,9 @@ A CrewAI multi-agent system that scans GitHub every day for the best new open-so
 ## Subscribe
 
 GitPulse runs as a live newsletter at **[thegitpulse.com](https://thegitpulse.com)** — register
-there to get the digest in your inbox each day. No setup, no API keys; the rest of this README
-is for running your own copy.
+there to get the digest in your inbox. The crew runs on a schedule **every morning at 9am**,
+so a fresh digest lands daily. No setup, no API keys; the rest of this README is for running
+your own copy.
 
 ---
 
@@ -221,6 +222,10 @@ crewai run
 ```
 
 The crew prints verbose agent output to the terminal, saves a markdown report to `reports/`, and sends the digest as a Resend broadcast to every contact in your audience.
+
+In production GitPulse is deployed to [CrewAI AMP](https://app.crewai.com), where a scheduled
+kickoff runs it every morning at 9am and delivers the digest to subscribers automatically —
+`crewai run` above is the local equivalent of one of those runs.
 
 A full run typically takes 3–6 minutes depending on how many search iterations the researcher agent needs.
 
